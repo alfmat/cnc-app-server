@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 // Constants
 const PORT = process.env.PORT || 8080;
@@ -11,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.post('/', (req, res) => {
     let body = req.body;
@@ -34,7 +36,7 @@ app.post('/', (req, res) => {
         subject: "Feedback - Called & Chosen", // Subject line
         html: body_html
     });
-    res.sendFile("./index.html");
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 app.listen(PORT);
