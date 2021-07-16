@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
         subject: "Feedback - Called & Chosen", // Subject line
         html: body_html
     });
-    res.send("Thanks, we appreciate your response!");
+    res.sendFile("./index.html");
 });
 
 app.listen(PORT);
