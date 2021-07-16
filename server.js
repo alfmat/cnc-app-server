@@ -24,7 +24,7 @@ app.post('/', (req, res) => {
     <h1>${body.name}</h1>
     <h2>${body.email}</h2>
     <h3>${body.phone}</h3>
-    <p>${body.message}</p>`;
+    <p>Message: ${body.message}</p>`;
     transporter.sendMail({
         from: `"CNC App Server" <${process.env.USER_NAME}>`, // sender address
         to: process.env.RECIPIENT, // list of receivers
