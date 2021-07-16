@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8080;
 // App
 const app = express();
 
-app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/', (req, res) => {
     let body = req.body;
